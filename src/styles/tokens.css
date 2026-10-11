@@ -1,0 +1,61 @@
+:root {
+  /* Technical Blueprint Light Palette */
+  --color-bg: #F7F7F5; /* Paper */
+  --color-fg: #1c1c1c; /* Ink */
+  --color-primary: #1A3C2B; /* Forest Green */
+  --color-primary-text: #ffffff;
+  --color-primary-hover: #132d20;
+  --color-border: rgba(58, 58, 56, 0.2); /* #3A3A38 at 20% */
+  --color-surface: #ffffff;
+  --color-surface-hover: #ffffff;
+  --color-muted: #5e5e5a;
+  
+  /* Technical Blueprint Accents */
+  --color-accent-coral: #FF8C69;
+  --color-accent-mint: #9EFFBF;
+  --color-accent-gold: #F4D35E;
+  
+  /* Statuses */
+  --color-status-active: #1A3C2B; /* Forest */
+  --color-status-invited: #8a6414; /* Text/border with Gold dot #F4D35E */
+  --color-status-invited-dot: #F4D35E;
+  --color-status-disabled: #5e5e5a; /* Grey dot & text */
+  --color-status-disabled-dot: #7a7a75;
+  --color-danger: #9a3b34; /* Text/border with Coral dot #FF8C69 */
+  --color-danger-dot: #FF8C69;
+  
+  /* Corner Markers & Grid */
+  --color-corner-marker: #1A3C2B;
+  --color-grid-line: rgba(58, 58, 56, 0.15);
+}
+
+.dark {
+  /* Technical Blueprint Dark Palette */
+  --color-bg: #141615; /* Deep Technical Ink */
+  --color-fg: #EDEFEA;
+  --color-primary: #9EFFBF; /* Mint in dark mode */
+  --color-primary-text: #1A3C2B; /* Forest text on Mint fill */
+  --color-primary-hover: #8be6ad;
+  --color-border: rgba(158, 255, 191, 0.15);
+  --color-surface: #1B1E1C;
+  --color-surface-hover: #222624;
+  --color-muted: #959B93;
+  
+  /* Technical Blueprint Accents in Dark Mode */
+  --color-accent-coral: #FF8C69;
+  --color-accent-mint: #9EFFBF;
+  --color-accent-gold: #F4D35E;
+
+  /* Statuses in Dark Mode */
+  --color-status-active: #9EFFBF;
+  --color-status-invited: #F4D35E;
+  --color-status-invited-dot: #F4D35E;
+  --color-status-disabled: #959B93;
+  --color-status-disabled-dot: #7a7a75;
+  --color-danger: #FF8C69;
+  --color-danger-dot: #FF8C69;
+
+  /* Corner Markers & Grid in Dark Mode */
+  --color-corner-marker: #9EFFBF;
+  --color-grid-line: rgba(158, 255, 191, 0.1);
+}

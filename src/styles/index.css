@@ -1,0 +1,89 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: 'General Sans', Inter, system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  /* Technical Blueprint typography defaults */
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  code, kbd, samp, pre, .font-mono {
+    font-family: 'JetBrains Mono', Menlo, monospace;
+  }
+}
+
+/* Accessible focus ring: 2px primary outline with 2px offset; no glows or shadows */
+.focus-ring {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .skeleton-pulse,
+  .animate-orbit,
+  .animate-scan {
+    animation: none !important;
+  }
+}
+
+/* 1px hairline border utilities */
+.border-hairline {
+  border-width: 1px;
+}
+
+/* Scanloader keyframe (snappy 1.5s loop) */
+@keyframes scan-track {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-scan {
+  animation: scan-track 1.5s linear infinite;
+}
+
+/* Orbit animation for Network Topology Graph */
+@keyframes orbit-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit-rotate 20s linear infinite;
+}

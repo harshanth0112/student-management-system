@@ -1,0 +1,38 @@
+export const mockAnnouncements = [
+  {
+    id: 'anc_01',
+    title: 'Midterm Evaluation Schedule Published',
+    content: 'Review the technical architecture syllabus. Project 9 code reviews will commence next Monday at 09:00 AM in Lab 4.',
+    author: 'Dr. Evelyn Reed',
+    department: 'All Departments',
+    date: '2026-02-14T08:00:00.000Z',
+    isNew: true,
+  },
+  {
+    id: 'anc_02',
+    title: 'Distributed Systems Workshop Registration',
+    content: 'Hands-on cluster deployment workshop with guest lecturers from cloud architecture teams. Limited to 40 seats.',
+    author: 'Dr. Evelyn Reed',
+    department: 'Computer Science',
+    date: '2026-02-10T11:30:00.000Z',
+    isNew: false,
+  },
+  {
+    id: 'anc_03',
+    title: 'Robotics Lab Firmware Safety Protocols',
+    content: 'All students operating motor drives and high-voltage bench supplies must verify circuit isolation with the lab supervisor before energizing.',
+    author: 'Prof. Julian Vance',
+    department: 'Electrical Engineering',
+    date: '2026-02-05T14:15:00.000Z',
+    isNew: false,
+  },
+  {
+    id: 'anc_04',
+    title: 'Spring Term Library Access & Repository Keys',
+    content: 'Updated VPN credentials and research paper database access keys are now distributed via the department registrar.',
+    author: 'Registrar Office',
+    department: 'All Departments',
+    date: '2026-01-20T09:00:00.000Z',
+    isNew: false,
+  },
+];
