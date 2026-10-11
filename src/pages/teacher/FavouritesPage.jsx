@@ -214,7 +214,7 @@ export default function FavouritesPage() {
                   <Eye className="w-3.5 h-3.5" /> VIEW
                 </Link>
                 <Link
-                  to={`${ROUTES.TEACHER_STUDENT_EDIT}/${student.id}`}
+                  to={ROUTES.TEACHER_STUDENT_EDIT.replace(':id', student.id)}
                   className="inline-flex items-center justify-center py-1.5 px-3 border-hairline border-border text-muted hover:text-foreground hover:border-foreground text-[11px] font-mono uppercase tracking-wider transition-colors"
                   style={{ borderRadius: '2px' }}
                   title="Edit Student"

@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useStudents } from '../../hooks/useStudents';
 import { useFavourites } from '../../hooks/useFavourites';
@@ -84,7 +84,7 @@ export default function StudentDetailPage() {
             </div>
           </div>
           <div className="flex items-center gap-2 flex-wrap">
-            <Link to={`${ROUTES.TEACHER_STUDENT_EDIT}/${student.id}`} className="inline-flex items-center gap-2 px-4 py-2 border-hairline border-border bg-background text-sm font-mono text-[11px] uppercase tracking-widest hover:border-foreground hover:text-foreground transition-colors" style={{ borderRadius: '2px' }}>
+            <Link to={ROUTES.TEACHER_STUDENT_EDIT.replace(':id', student.id)} className="inline-flex items-center gap-2 px-4 py-2 border-hairline border-border bg-background text-sm font-mono text-[11px] uppercase tracking-widest hover:border-foreground hover:text-foreground transition-colors" style={{ borderRadius: '2px' }}>
               <Edit2 className="w-3.5 h-3.5" /> EDIT
             </Link>
             <button onClick={handleToggleFavourite} className="inline-flex items-center gap-2 px-4 py-2 border-hairline transition-colors font-mono text-[11px] uppercase tracking-widest" style={{ borderRadius: '2px', backgroundColor: isFav ? 'var(--color-accent-coral)' : 'transparent', borderColor: isFav ? 'var(--color-accent-coral)' : 'var(--color-border)', color: isFav ? 'var(--color-primary-text)' : 'var(--color-foreground)' }}>
