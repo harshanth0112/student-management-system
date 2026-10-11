@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import { Button } from '../components/ui/Button';
 
+/**
+ * Detects Vite chunk-load failures that happen when Render (or any CDN)
+ * redeploys and old hashed filenames no longer exist.
+ * Strategy: auto-reload once per session; if it still fails, show the error UI.
+ */
+const CHUNK_RELOAD_KEY = '__chunk_reload_attempted__';
+
+function isChunkError(error) {
+  if (!error) return false;
+  const msg = error.message || String(error);
+  return (
+    msg.includes('Failed to fetch dynamically imported module') ||
+    msg.includes('Importing a module script failed') ||
+    msg.includes('ChunkLoadError') ||
+    error.name === 'ChunkLoadError'
+  );
+}
+
 export class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -8,14 +26,34 @@ export class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(error) {
+    // Auto-reload once for stale chunk errors (happens after Render redeploy)
+    if (isChunkError(error)) {
+      const alreadyAttempted = sessionStorage.getItem(CHUNK_RELOAD_KEY);
+      if (!alreadyAttempted) {
+        sessionStorage.setItem(CHUNK_RELOAD_KEY, '1');
+        window.location.reload();
+        // Return a non-error state while reload is in-flight
+        return { hasError: false, error: null };
+      }
+    }
     return { hasError: true, error };
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('Uncaught application error:', error, errorInfo);
+    if (!isChunkError(error)) {
+      console.error('Uncaught application error:', error, errorInfo);
+    }
+  }
+
+  componentDidUpdate() {
+    // Clear the reload flag once the app recovers successfully
+    if (!this.state.hasError) {
+      sessionStorage.removeItem(CHUNK_RELOAD_KEY);
+    }
   }
 
   handleReload = () => {
+    sessionStorage.removeItem(CHUNK_RELOAD_KEY);
     window.location.reload();
   };
 
